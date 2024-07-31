@@ -14,8 +14,14 @@
 # Note: python does not have a ++ operator, but += works.
 
 def match_ends(words):
-    # +++your code here+++
-    return
+    count = 0 
+    for word in words:
+        # Checks to see if the length is more than 2 characters 
+        # Checks if first character is equal to last character
+        # if both conditions are met increments the 'count' returning total count of matching str
+        if len(word) >= 2 and word[0] == word[-1]:
+            count += 1
+    return count
 
 
 # B. front_x
@@ -27,9 +33,14 @@ def match_ends(words):
 # before combining them.
 
 def front_x(words):
-    # +++your code here+++
-    return
-
+    # Separate the lists
+    x_list = [word for word in words if word.startswith("x")]
+    not_x_list = [word for word in words if not word.startswith("x")]
+    # Sort the lists
+    x_list.sort()
+    not_x_list.sort()
+    # Put the lists together with words starting with x first
+    return x_list + not_x_list
 
 # C. sort_last
 # Given a list of non-empty tuples, return a list sorted in increasing
@@ -39,8 +50,11 @@ def front_x(words):
 # Hint: use a custom key= function to extract the last element form each tuple.
 
 def sort_last(tuples):
-    # +++your code here+++
-    return
+    # The sorted() function sorts the list
+    # The key is set to a lambda function that takes the tuple and returns the last element
+    # It sorts the list of tuples based on the last element in increasing order
+    return sorted(tuples, key=lambda x: x[-1]) 
+
 
 
 # Simple provided test() function used in main() to print
